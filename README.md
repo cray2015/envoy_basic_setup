@@ -23,6 +23,17 @@ https://docs.docker.com/engine/install/ubuntu/
         
         $ sudo apt install docker-compose -y
 
+# Starting the Envoy proxy
+
+        $ docker-compose up -d --build
+
+# Testing
+
+Either do a CURL or hit it with browser
+
+- service 1 - http://localhost/service1
+- service 2 - http://localhost/service2
+
 ## Note
 
 This is more like a sandbox setup. The actual documentation should be refered before using this config in production.
