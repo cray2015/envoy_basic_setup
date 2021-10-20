@@ -12,7 +12,7 @@ resources:
         "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
         stat_prefix: ingress_http
         http_filters:
-        - name: envoy.router
+        - name: envoy.filters.http.router
         route_config:
           name: local_route
           virtual_hosts:
@@ -21,6 +21,10 @@ resources:
             - "*"
             routes:
             - match:
-                prefix: "/"
+                prefix: "/service1"
               route:
-                cluster: example_proxy_cluster
+                cluster: example_proxy_cluster1
+            - match:
+                prefix: "/service2"
+              route:
+                cluster: example_proxy_cluster2
